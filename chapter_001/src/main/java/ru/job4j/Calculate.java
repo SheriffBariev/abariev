@@ -8,8 +8,12 @@ package ru.job4j;
 *@since 20.09.2017
 */
 
-public class Calculate{
-	public static void main(String[] args){
+public class Calculate {
+	/**
+	*Method main.
+	*@param args args.
+	*/
+	public static void main(String[] args) {
 	System.out.println("Hello world.");
 	}
 
@@ -18,10 +22,7 @@ public class Calculate{
 	* @param name Your name.
 	* @return Echo plus your name.
 	*/
-
 	public String echo(String name) {
     	return "Echo, echo, echo : " + name;
 	}
- 
-
 }
