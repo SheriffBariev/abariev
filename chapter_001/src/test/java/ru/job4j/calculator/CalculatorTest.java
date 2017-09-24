@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
- * calculator.
+ * CalculatorTest.
  *
  * @author Ayup Bariev (mailto: abdullaiman06@gmail.com)
  * @since 24.09.2017
