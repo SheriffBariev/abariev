@@ -21,4 +21,15 @@ public class MaxTest {
         assertThat(result, is(123));
     }
 
+    /**
+     *Test peak value.
+     */
+
+    @Test
+    public void whenValueMaxLessOutcomeThat() {
+        Max peak = new Max();
+        int outcome = peak.max(1000, 2000, 2017);
+        assertThat(outcome, is(2017));
+    }
+
 }

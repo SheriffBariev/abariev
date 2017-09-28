@@ -7,7 +7,7 @@ package ru.job4j.max;
  */
 public class Max {
     /**
-     * Метод возвращающий большее число.
+     * Метод возвращающий большее 2-х чисел.
      * @param first первое значение.
      * @param second второе значение.
      * @return возврат большего значения.
@@ -15,4 +15,17 @@ public class Max {
     public int max(int first, int second) {
         return first > second ? first : second;
     }
+
+    /**
+     * Метод возвращающий большее из 3 чисел.
+     * @param first первое значение.
+     * @param second второе значение.
+     * @param third третье значение.
+     * @return возврат большего значения.
+     */
+
+    public int max(int first, int second, int third) {
+        return max(max(first, second), third);
+    }
+
 }
