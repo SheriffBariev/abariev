@@ -33,6 +33,7 @@ public class Point {
      */
 
     public int getX() {
+
         return this.x;
     }
 
@@ -42,6 +43,7 @@ public class Point {
      */
 
     public int getY() {
+
         return this.y;
     }
 
@@ -53,6 +55,7 @@ public class Point {
      */
 
     public boolean is(int a, int b) {
-        return y == a * x + b ? true : false;
+
+        return this.y == a * this.x + b ? true : false;
     }
 }
