@@ -1,5 +1,5 @@
 /**
- * Package for Counter task.
+ * Package for loop task.
  * @author Ayup Bariev (mailto:abdullaiman06@gmail.com)
  * @since 28.09.2017
  */
