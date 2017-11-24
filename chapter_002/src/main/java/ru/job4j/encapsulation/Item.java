@@ -27,7 +27,16 @@ public class Item {
 	* Конструктор по умолчанию.	
 	*/
 	public Item() {
-}	
+}
+	/**
+	 * Конструктор.
+	 * @param name имя автора.
+	 * @param desc описание.
+	 */
+	public Item(String name, String desc) {
+		this.name = name;
+		this.desc = desc;
+	}
 	/**
 	* Конструктор c тремя входными значениями.
 	* @param name имя.

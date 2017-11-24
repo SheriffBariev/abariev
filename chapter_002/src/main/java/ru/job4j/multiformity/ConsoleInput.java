@@ -7,7 +7,7 @@ import java.util.Scanner;
 * @author Ayup Bariev.
 * @since 15.11.2017.
 */
-public class ConsoleInput {
+public class ConsoleInput implements Input {
         Scanner scanner = new Scanner(System.in);
 		/**
 		* Метод ask.

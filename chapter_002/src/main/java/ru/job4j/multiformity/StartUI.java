@@ -36,7 +36,7 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    private final ConsoleInput input;
+    private final Input input;
 
     /**
      * Хранилище заявок.
@@ -48,7 +48,7 @@ public class StartUI {
      * @param input ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(ConsoleInput input, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -93,8 +93,7 @@ public class StartUI {
         System.out.println("------------ Add a new application --------------");
         String name = this.input.ask("Enter the name of the application : ");
         String desc = this.input.ask("Enter the description of the application : ");
-        long create = Long.parseLong(this.input.ask("Enter the create of the application : "));
-        Item item = new Item(name, desc, create);
+        Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ New application with getId : " + item.getId() + "-----------");
     }
@@ -113,7 +112,11 @@ public class StartUI {
 	private void editItem() {
 		System.out.println("------------ Edit application --------------");
 		String id = this.input.ask("Enter the ID of the application : ");
-		this.tracker.update(this.tracker.findById(id));
+		String name = this.input.ask("Enter the name of the application : ");
+		String desc = this.input.ask("Enter the description of the application : ");
+		Item item = new Item(name, desc);
+		item.setId(id);
+		this.tracker.update(item);
 		System.out.println("------------ Editing successfully --------------");
 	}
 	

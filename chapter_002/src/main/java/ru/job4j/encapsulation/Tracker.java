@@ -35,7 +35,7 @@ public class Tracker {
 	 */	
 	public void update(Item item) {
 	for (int index = 0; index != position; index++) {
-		if (items[index] != null && this.items[index].getId().equals(item.getId())) {
+		if (this.items[index].getId().equals(item.getId())) {
 			items[index] = item;
 			}
 		}
