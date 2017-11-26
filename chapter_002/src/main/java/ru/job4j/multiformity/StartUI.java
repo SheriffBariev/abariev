@@ -4,6 +4,10 @@ package ru.job4j.multiformity;
 *@since 11.11.2017.
 */
 import ru.job4j.encapsulation.*;
+import ru.job4j.start.MenuTracker;
+
+import java.awt.*;
+
 public class StartUI {
 	/**
     * Константа меню для добавления новой заявки.
@@ -57,7 +61,15 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
+		MenuTracker menuTracker = new MenuTracker(this.input, this.tracker);
+		menuTracker.fillActions();
+		do {
+			menuTracker.show();
+			int key = Integer.parseInt(input.ask("Select: "));
+			menuTracker.select(key);
+		} while (!("y").equals(this.input.ask("Exit? (y): ")));
+    }
+        /*boolean exit = false;
         while (!exit) {
             this.showMenu();
             String answer = this.input.ask("Select the menu item : ");
@@ -84,32 +96,32 @@ public class StartUI {
              exit = true;
            }
         }
-    }
+    }*/
 
-    /**
-     * Метод реализует добавленяи новый заявки в хранилище.
-     */
-    private void createItem() {
+		/**
+		 * Метод реализует добавленяи новый заявки в хранилище.
+		 */
+    /*private void createItem() {
         System.out.println("------------ Add a new application --------------");
         String name = this.input.ask("Enter the name of the application : ");
         String desc = this.input.ask("Enter the description of the application : ");
         Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("------------ New application with getId : " + item.getId() + "-----------");
-    }
-	
-	/**
-	* Метод выводит весь список заявок.
-	*/
-	private void findAllItem() {
+    }*/
+
+		/**
+		 * Метод выводит весь список заявок.
+		 */
+	/*private void findAllItem() {
 		System.out.println("------------ All applications --------------");
 		System.out.println(this.tracker.findAll());
-	}
-	
-	/**
-	* Метод редактирует заявку.
-	*/
-	private void editItem() {
+	}*/
+
+		/**
+		 * Метод редактирует заявку.
+		 */
+	/*private void editItem() {
 		System.out.println("------------ Edit application --------------");
 		String id = this.input.ask("Enter the ID of the application : ");
 		String name = this.input.ask("Enter the name of the application : ");
@@ -118,40 +130,40 @@ public class StartUI {
 		item.setId(id);
 		this.tracker.update(item);
 		System.out.println("------------ Editing successfully --------------");
-	}
-	
-	/**
-	* Метод удаляет заявку.
-	*/
-	private void deleteItem() {
+	}*/
+
+		/**
+		 * Метод удаляет заявку.
+		 */
+	/*private void deleteItem() {
 		System.out.println("------------ Delete application --------------");
 		String id = this.input.ask("Enter the name of the application : ");
 		this.tracker.delete(this.tracker.findById(id));
 		System.out.println("------------ Removed --------------");
-	}
-	
-	/**
-	* Метод находит заявку по id.
-	*/
-	private void findByIdItem() {
+	}*/
+
+		/**
+		 * Метод находит заявку по id.
+		 */
+	/*private void findByIdItem() {
 		System.out.println("------------ Delete application --------------");
 		String id = this.input.ask("Enter the id of the application : ");
 		System.out.println("------------ Application found by ID is :" + this.tracker.findById(id));
-	}
-	
-	/**
-	* Метод находит заявку по имени.
-	*/
-	private void findByName() {
+	}*/
+
+		/**
+		 * Метод находит заявку по имени.
+		 */
+	/*private void findByName() {
 		System.out.println("------------ Delete application --------------");
 		String name = this.input.ask("Enter the name of the application : ");
 		System.out.println("------------ Application found by name is :" + this.tracker.findByName(name));
-	}
-	
-	/**
-	* Меню.
-	*/
-    private void showMenu() {
+	}*/
+
+		/**
+		 * Меню.
+		 */
+    /*private void showMenu() {
         System.out.println("Menu.");
         System.out.println("0. Add new Item");
 		System.out.println("1. Show all items");
@@ -160,13 +172,14 @@ public class StartUI {
 		System.out.println("4. Find item by Id");
 		System.out.println("5. Find items by name");
 		System.out.println("6. Exit Program");
-    }
+    }*/
 
-    /**
-     * Запускт программы.
-     * @param args
-     */
-    public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
-    }
-}
+		/**
+		 * Запускт программы.
+		 * @param args
+		 */
+		public static void main(String[]args) {
+			new StartUI(new ConsoleInput(), new Tracker()).init();
+		}
+	}
+

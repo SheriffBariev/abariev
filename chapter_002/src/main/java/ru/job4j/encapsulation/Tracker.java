@@ -37,6 +37,7 @@ public class Tracker {
 	for (int index = 0; index != position; index++) {
 		if (this.items[index].getId().equals(item.getId())) {
 			items[index] = item;
+			break;
 			}
 		}
 	}
@@ -44,10 +45,11 @@ public class Tracker {
 	 * Метод удаление заявок .
 	 * @param item объект.
 	 */	
-	public void delete(Item item) {	
-	for (int index = 0; index != position; index++) {
-		if (items[index] != null && this.items[index].getId().equals(item.getId())) {
+	public void delete(Item item) {
+	for (int index = 0; index != this.position; index++) {
+		if (items[index] != null && items[index].getId().equals(item.getId())) {
 			items[index] = null;
+			break;
 			}
 		}	
 	}
@@ -55,13 +57,15 @@ public class Tracker {
 	 * Метод получение списка всех заявок.
 	 * @return возврат массива.
 	 */
-	public Item[] findAll() { 
-	Item[] result = new Item[this.position];
-	for (int index = 0; index != this.position; index++) {
-		result[index] = this.items[index];
+	public Item[] findAll() {
+		Item[] result = new Item[this.position];
+		for (int index = 0; index != this.position; index++) {
+			if (this.items[index] != null) {
+				result[index] = this.items[index];
+			}
+		}
+		return result;
 	}
-	return result;
-}	
 	/**
 	 * Метод получение списка по имени.
 	 * @param key ключевое слово.
