@@ -39,7 +39,13 @@ public class MenuTracker {
      * Приватный массив userAction.
      */
     private UserAction[] actions = new UserAction[7];
-
+    public int[] getActions() {
+        int[] array = new int[actions.length];
+        for (int index = 0; index != actions.length; index++) {
+            array[index] = index;
+        }
+        return array;
+    }
     /**
      * Конструкто меню трекера.
      * @param input объект ввод.

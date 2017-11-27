@@ -31,4 +31,14 @@ public class StubInput implements Input {
     public String ask(String question) {
         return answers[position++];
     }
+
+    /**
+     * переопределение метода.
+     * @param question вопрос.
+     * @param range массив.
+     * @return число.
+     */
+    public int ask(String question, int[] range) {
+        return -1;
+    }
 }
