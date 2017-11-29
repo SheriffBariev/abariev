@@ -3,12 +3,12 @@ package ru.job4j.multiformity;
 *@author Ayup Bariev.
 *@since 11.11.2017.
 */
-import ru.job4j.encapsulation.*;
+import ru.job4j.encapsulation.Tracker;
 import ru.job4j.start.MenuTracker;
 
-import java.awt.*;
-
 public class StartUI {
+
+	private final Tracker tracker;
 	/**
      * Получение данных от пользователя.
      */
@@ -21,20 +21,20 @@ public class StartUI {
      * Конструтор инициализирующий поля.
      * @param input ввод данных.
      */
-    public StartUI(Input input) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
+        this.tracker = tracker;
     }
 
     /**
      * Основой цикл программы.
      */
     public void init() {
-    	Tracker tracker = new Tracker();
-    	MenuTracker menuTracker = new MenuTracker(this.input, tracker);
+    	MenuTracker menuTracker = new MenuTracker(this.input, this.tracker);
 		menuTracker.fillActions();
 		do {
 			menuTracker.show();
-			menuTracker.select(input.ask("select:", menuTracker.getActions()));
+			menuTracker.select(this.input.ask("select:", menuTracker.getActions()));
 		} while (!("y").equals(this.input.ask("Exit? (y): ")));
     }
 
@@ -44,8 +44,7 @@ public class StartUI {
 		 * @param args
 		 */
 		public static void main(String[]args) {
-			Input input = new ValidateInput();
-			new StartUI(input).init();
+			new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
 		}
 	}
 

@@ -9,7 +9,7 @@ import ru.job4j.multiformity.Input;
  * Внешний класс exit переопределяем методы UserAction.
  */
 class Exit extends BaseAction {
-    public Exit(String name, int key){
+    public Exit(String name, int key) {
         super(name, key);
     }
     public int key() {
@@ -40,7 +40,7 @@ public class MenuTracker {
      * Приватный массив userAction.
      */
     private UserAction[] actions = new UserAction[7];
-    public int[] getActions(){
+    public int[] getActions() {
         int[] array = new int[actions.length];
         for (int index = 0; index != actions.length; index++) {
             array[index] = index;
@@ -92,7 +92,7 @@ public class MenuTracker {
      * Приватный класс AddItem переопределяем методы UserAction.
      */
     private class AddItem extends BaseAction {
-        public AddItem(String name, int key){
+        public AddItem(String name, int key) {
             super(name, key);
         }
         public int key() {
@@ -109,7 +109,7 @@ public class MenuTracker {
      * Приватный класс ShowAll переопределяем методы UserAction.
      */
     private class ShowAll extends BaseAction {
-        public ShowAll(String name, int key){
+        public ShowAll(String name, int key) {
             super(name, key);
         }
         public int key() {
@@ -131,7 +131,7 @@ public class MenuTracker {
      * Приватный класс EditItem переопределяем методы UserAction.
      */
     private static class EditItem extends BaseAction {
-        public EditItem(String name, int key){
+        public EditItem(String name, int key) {
             super(name, key);
         }
         public int key() {
@@ -152,7 +152,7 @@ public class MenuTracker {
      * Приватный класс DeleteItem переопределяем методы UserAction.
      */
     private class DeleteItem extends BaseAction {
-        public DeleteItem(String name, int key){
+        public DeleteItem(String name, int key) {
             super(name, key);
         }
         public int key() {
@@ -171,7 +171,7 @@ public class MenuTracker {
      * Приватный класс FindById переопределяем методы UserAction.
      */
     private class FindById extends BaseAction {
-        public FindById(String name, int key){
+        public FindById(String name, int key) {
             super(name, key);
         }
         public int key() {
@@ -189,7 +189,7 @@ public class MenuTracker {
      * Приватный класс FindByName переопределяем методы UserAction.
      */
     private class FindByName extends BaseAction {
-        public FindByName(String name, int key){
+        public FindByName(String name, int key) {
             super(name, key);
         }
         public int key() {
