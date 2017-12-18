@@ -2,6 +2,7 @@ package ru.job4j.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,6 +23,21 @@ public class ConvertList {
         }
         return list;
     }
+    /**
+     * Конвертация листа массивов в один лист Integer.
+     * @param list коллекция листа массивов.
+     * @return возврат одного листа.
+     */
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> arrayList = new ArrayList<>();
+        for (int[] i : list) {
+            for (int j : i) {
+                arrayList.add(j);
+            }
+        }
+        return arrayList;
+    }
+
 
     /**
      * Конвертация в массив.
@@ -43,27 +59,5 @@ public class ConvertList {
             }
         }
         return resultArray;
-    }
-
-
-    public static void main(String[] args) {
-        /**
-         * тест первого метода.
-         */
-        ConvertList convertList = new ConvertList();
-        int[][] array = {{1, 2, 3}, {4, 5, 6}};
-        List<Integer> listArray = convertList.toList(array);
-        System.out.println(listArray);
-
-        /**
-         * тест второго метода.
-         */
-        List<Integer> list = new ArrayList<>();
-        for (int index = 1; index < 10; index++) {
-            list.add(index);
-        }
-        int[][] matrix = convertList.toArray(list, 3);
-        System.out.println(Arrays.deepToString(matrix));
-
     }
 }
