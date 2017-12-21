@@ -15,7 +15,7 @@ public class TrackerTest {
 	Tracker tracker = new Tracker();
 	Item item = new Item("test1", "testDescription", 123L);
 	tracker.add(item);
-	assertThat(tracker.findAll()[0], is(item));
+	assertThat(tracker.findAll().get(0), is(item));
 	}
 	/**
 	* Тест редактирования заявок и метода findById.
@@ -50,7 +50,7 @@ public class TrackerTest {
 	Item item = new Item("Yupi", "Gum", 10000L);
 	tracker.add(item);
 	String key = "Yupi";
-	assertThat(tracker.findByName(key)[0], is(item));
+	assertThat(tracker.findByName(key).get(0), is(item));
 	}
 }
 

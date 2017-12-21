@@ -1,5 +1,7 @@
 package ru.job4j.multiformity;
 
+import java.util.List;
+
 /**
  * StubInput.
  * @author Sheriff.
@@ -38,7 +40,7 @@ public class StubInput implements Input {
      * @param range массив.
      * @return число.
      */
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<Integer> range) {
         return Integer.valueOf(this.ask(question));
     }
 }

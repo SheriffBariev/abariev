@@ -10,7 +10,7 @@ public class Tracker {
 	/**
 	 * Приватный массив items.
 	 */
-	private Item[] items = new Item[100];
+	private ArrayList<Item> items = new ArrayList<>();
 	/**
 	 * Приватная переменная position.
 	 */
@@ -26,7 +26,7 @@ public class Tracker {
 	 */
 	public Item add(Item item) {
 	item.setId(this.generateId());
-	this.items[position++] = item;
+	this.items.add(item);
 	return item;		
 	}
 	/**
@@ -34,9 +34,9 @@ public class Tracker {
 	 * @param item объект.
 	 */	
 	public void update(Item item) {
-	for (int index = 0; index != position; index++) {
-		if (this.items[index].getId().equals(item.getId())) {
-			items[index] = item;
+	for (int index = 0; index != items.size(); index++) {
+		if (this.items.get(index).getId().equals(item.getId())) {
+			items.set(index, item);
 			break;
 			}
 		}
@@ -46,36 +46,25 @@ public class Tracker {
 	 * @param item объект.
 	 */	
 	public void delete(Item item) {
-	for (int index = 0; index != this.position; index++) {
-		if (items[index] != null && items[index].getId().equals(item.getId())) {
-			items[index] = null;
-			break;
-			}
-		}	
+		items.remove(item);
 	}
 	/**
 	 * Метод получение списка всех заявок.
 	 * @return возврат массива.
 	 */
-	public Item[] findAll() {
-		Item[] result = new Item[this.position];
-		for (int index = 0; index != this.position; index++) {
-			if (this.items[index] != null) {
-				result[index] = this.items[index];
-			}
-		}
-		return result;
+	public List<Item> findAll() {
+		return this.items;
 	}
 	/**
 	 * Метод получение списка по имени.
 	 * @param key ключевое слово.
 	 * @return возврат массива.
 	 */
-	public Item[] findByName(String key) {
-	Item[] result = new Item[this.position];
-	for (int index = 0; index != position; index++) {
-		if (items[index] != null && this.items[index].getName().equals(key)) {
-			result[index] = items[index];
+	public List<Item> findByName(String key) {
+	List<Item> result = new ArrayList<>();
+	for (Item item : items) {
+		if (item.getName().equals(key)) {
+			result.add(item);
 			}
 		}
 	return result;	

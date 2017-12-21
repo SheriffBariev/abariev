@@ -1,5 +1,7 @@
 package ru.job4j.multiformity;
 
+import java.util.List;
+
 /**
  * StubInput.
  * @author Sheriff.
@@ -8,5 +10,5 @@ package ru.job4j.multiformity;
 public interface Input {
     String ask(String question);
 
-    int ask(String question, int[] range);
+    int ask(String question, List<Integer> range);
 }

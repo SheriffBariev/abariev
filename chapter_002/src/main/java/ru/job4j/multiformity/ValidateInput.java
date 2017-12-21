@@ -2,6 +2,8 @@ package ru.job4j.multiformity;
 
 import ru.job4j.start.MenuTracker;
 
+import java.util.List;
+
 /**
  * Исключительные ситуации.
  */
@@ -21,7 +23,7 @@ public class ValidateInput implements Input {
      * @param range массив.
      * @return переменная value.
      */
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;
         do {

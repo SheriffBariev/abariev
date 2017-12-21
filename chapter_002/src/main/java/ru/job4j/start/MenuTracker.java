@@ -5,6 +5,9 @@ import ru.job4j.encapsulation.Tracker;
 import ru.job4j.multiformity.BaseAction;
 import ru.job4j.multiformity.Input;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Внешний класс exit переопределяем методы UserAction.
  */
@@ -39,11 +42,11 @@ public class MenuTracker {
     /**
      * Приватный массив userAction.
      */
-    private UserAction[] actions = new UserAction[7];
-    public int[] getActions() {
-        int[] array = new int[actions.length];
-        for (int index = 0; index != actions.length; index++) {
-            array[index] = index;
+    private List<UserAction> actions = new ArrayList<>();
+    public List<Integer> getActions() {
+        List<Integer> array = new ArrayList<>();
+        for (UserAction i : actions) {
+            array.add(i.key());
         }
         return array;
     }
@@ -60,13 +63,13 @@ public class MenuTracker {
      * Заполнение.
      */
     public void fillActions() {
-        this.actions[0] = new AddItem("Add new Item", 0);
-        this.actions[1] = new ShowAll("Show all items", 1);
-        this.actions[2] = new EditItem("Edit item", 2);
-        this.actions[3] = new DeleteItem("Delete item", 3);
-        this.actions[4] = new FindById("Find item by Id", 4);
-        this.actions[5] = new FindByName("Find items by name", 5);
-        this.actions[6] = new Exit("Exit Program.", 6);
+        actions.add(new AddItem("Add new Item", 0));
+        actions.add(new ShowAll("Show all items", 1));
+        actions.add(new EditItem("Edit item", 2));
+        actions.add(new DeleteItem("Delete item", 3));
+        actions.add(new FindById("Find item by Id", 4));
+        actions.add(new FindByName("Find items by name", 5));
+        actions.add(new Exit("Exit Program.", 6));
     }
 
     /**
@@ -74,7 +77,7 @@ public class MenuTracker {
      * @param key ключ.
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**
@@ -117,12 +120,12 @@ public class MenuTracker {
         }
 
         public void execute(Input input, Tracker tracker) {
-            for (int index = 0; index != tracker.findAll().length; index++) {
-                if (tracker.findAll()[index] != null) {
+            for (int index = 0; index != tracker.findAll().size(); index++) {
+                if (tracker.findAll().get(index) != null) {
                     System.out.println(String.format("%s, %s, %s",
-                            tracker.findAll()[index].getId(),
-                            tracker.findAll()[index].getName(),
-                            tracker.findAll()[index].getDesc()));
+                            tracker.findAll().get(index).getId(),
+                            tracker.findAll().get(index).getName(),
+                            tracker.findAll().get(index).getDesc()));
                 }
             }
         }

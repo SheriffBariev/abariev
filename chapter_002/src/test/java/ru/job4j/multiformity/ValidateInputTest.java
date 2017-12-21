@@ -4,6 +4,10 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -22,8 +26,10 @@ public class ValidateInputTest {
         System.setOut(new PrintStream(out));
         // выполняем действия пишушиее в консоль.
         Input input = new StubInput(new String[]{"10", "0"});
+        List<Integer> list = new ArrayList<>();
+        list.add(0);
         ValidateInput validate = new ValidateInput(input);
-        validate.ask("", new int[]{0});
+        validate.ask("", Collections.singletonList(list.get(0)));
         // проверяем результат вычисления
         assertThat(new String(out.toByteArray()), is("Please select key from menu.\r\n"));
         System.setOut(stdout);
@@ -38,8 +44,10 @@ public class ValidateInputTest {
         System.setOut(new PrintStream(out));
         // выполняем действия пишушиее в консоль.
         Input input = new StubInput(new String[]{"a", "0"});
+        List<Integer> list = new ArrayList<>();
+        list.add(0);
         ValidateInput validate = new ValidateInput(input);
-        validate.ask("", new int[]{0});
+        validate.ask("", Collections.singletonList(list.get(0)));
         // проверяем результат вычисления
         assertThat(new String(out.toByteArray()), is("Please enter validate data again.\r\n"));
         System.setOut(stdout);

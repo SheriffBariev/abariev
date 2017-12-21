@@ -1,5 +1,6 @@
 package ru.job4j.multiformity;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,7 @@ public class ConsoleInput implements Input {
 	 * @param range массив.
 	 * @return вернуть ключ.
 	 */
-	public int ask(String question, int[] range) {
+	public int ask(String question, List<Integer> range) {
 		int key = Integer.valueOf(this.ask(question));
 		boolean exist = false;
 		for (int value : range) {
