@@ -31,7 +31,7 @@ public class ValidateInputTest {
         ValidateInput validate = new ValidateInput(input);
         validate.ask("", Collections.singletonList(list.get(0)));
         // проверяем результат вычисления
-        assertThat(new String(out.toByteArray()), is("Please select key from menu.\r\n"));
+        assertThat(new String(out.toByteArray()), is("Please select key from menu.\n"));
         System.setOut(stdout);
     }
     @Test
@@ -49,7 +49,7 @@ public class ValidateInputTest {
         ValidateInput validate = new ValidateInput(input);
         validate.ask("", Collections.singletonList(list.get(0)));
         // проверяем результат вычисления
-        assertThat(new String(out.toByteArray()), is("Please enter validate data again.\r\n"));
+        assertThat(new String(out.toByteArray()), is("Please enter validate data again.\n"));
         System.setOut(stdout);
     }
 

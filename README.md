@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SheriffBariev/abariev.svg?branch=master)](https://travis-ci.org/SheriffBariev/abariev)
+[![codecov](https://codecov.io/gh/SheriffBariev/abariev/branch/master/graph/badge.svg)](https://codecov.io/gh/SheriffBariev/abariev)
 # abariev
-Всем привет! Меня зовут Аюп. Моя цель научится программировать и устроится Java Developer. 
-Достигнуть цели собираюсь 1 марта следующего. Буду стараться вместе с курсом - http://job4j.ru/
+Р’СЃРµРј РїСЂРёРІРµС‚! РњРµРЅСЏ Р·РѕРІСѓС‚ РђСЋРї. РњРѕСЏ С†РµР»СЊ РЅР°СѓС‡РёС‚СЃСЏ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°С‚СЊ Рё СѓСЃС‚СЂРѕРёС‚СЃСЏ Java Developer. 
+Р”РѕСЃС‚РёРіРЅСѓС‚СЊ С†РµР»Рё СЃРѕР±РёСЂР°СЋСЃСЊ 1 РјР°СЂС‚Р° СЃР»РµРґСѓСЋС‰РµРіРѕ. Р‘СѓРґСѓ СЃС‚Р°СЂР°С‚СЊСЃСЏ РІРјРµСЃС‚Рµ СЃ РєСѓСЂСЃРѕРј - http://job4j.ru/

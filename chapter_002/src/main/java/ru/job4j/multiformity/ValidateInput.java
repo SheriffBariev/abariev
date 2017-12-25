@@ -34,9 +34,9 @@ public class ValidateInput implements Input {
                     throw new MenuOutException("");
                 }
             } catch (MenuOutException moe) {
-                System.out.println("Please select key from menu.");
+                System.out.printf("%s\n", "Please select key from menu.");
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");
+                System.out.printf("%s\n", "Please enter validate data again.");
             }
         } while (invalid);
         return value;

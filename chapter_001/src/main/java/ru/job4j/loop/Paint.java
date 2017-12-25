@@ -22,7 +22,7 @@ public class Paint {
                 }
             }
             if (i < h - 1) {
-                builder.append("\r\n");
+                builder.append("\n");
             }
         }
         return builder.toString();

@@ -25,7 +25,7 @@ public class Board {
                 }
 
             }
-            builder.append("\r\n");
+            builder.append("\n");
         }
         return builder.toString();
     }
