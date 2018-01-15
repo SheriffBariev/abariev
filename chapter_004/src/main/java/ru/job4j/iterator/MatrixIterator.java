@@ -21,17 +21,17 @@ public class MatrixIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (index == array.length - 1 && value == array[0].length - 1) {
+        if (index == array.length - 1 && value == array[index].length - 1) {
             throw new NoSuchElementException("Out of Array");
         }
-        return index < array.length && value < array[0].length;
+        return index < array.length && value < array[index].length;
     }
 
     @Override
     public Object next() {
-        if (value != array[0].length - 1 && index < array.length) {
+        if (value != array[index].length - 1 && index < array.length) {
             value++;
-        } else if (value == array[0].length - 1 && index != array.length - 1) {
+        } else if (value == array[index].length - 1 && index != array.length - 1) {
             value = 0;
             index++;
         } else {
