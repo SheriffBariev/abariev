@@ -17,19 +17,15 @@ public class EvenNumbersIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        while (values[index] % 2 != 0 && values[index] != values.length) {
+        while (values[index] % 2 != 0 && index != values.length - 1) {
             index++;
         }
         return values[index] % 2 == 0;
     }
-
     @Override
     public Object next() {
-        while (values[index] % 2 != 0) {
-            if (index == values.length - 1) {
-                throw new NoSuchElementException("Out of Array");
-            }
-            index++;
+        if (!hasNext()) {
+            throw new NoSuchElementException("No such count.");
         }
         return values[index++];
     }
