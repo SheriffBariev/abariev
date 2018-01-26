@@ -21,7 +21,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
     }
 
     public boolean replace(String id, T model) {
-        if(checkId(id)) {
+        if (checkId(id)) {
             Integer count = Integer.valueOf(id);
             simpleArray.set(count, model);
         }
@@ -29,7 +29,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
     }
 
     public boolean delete(String id) {
-        if(checkId(id)) {
+        if (checkId(id)) {
             Integer value = Integer.valueOf(id);
             simpleArray.delete(value);
         }
@@ -38,7 +38,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
 
     public T findById(String id) {
         Integer value = null;
-        if(checkId(id)) {
+        if (checkId(id)) {
             value = Integer.valueOf(id);
         }
         return simpleArray.get(value);
