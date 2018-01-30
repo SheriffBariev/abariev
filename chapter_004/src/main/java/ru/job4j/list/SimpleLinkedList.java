@@ -18,7 +18,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
      * Class Node.
      * @param <E> element.
      */
-    private static class Node<E> {
+    protected static class Node<E> {
         E element;
         Node<E> next;
         Node<E> prev;
