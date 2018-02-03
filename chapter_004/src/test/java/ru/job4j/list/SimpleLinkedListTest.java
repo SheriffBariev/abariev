@@ -52,4 +52,13 @@ public class SimpleLinkedListTest {
         simple.add(10);
         it.next();
     }
+
+    @Test
+    public void shouldReturnThree() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertThat(list.get(2), is(3));
+    }
 }
