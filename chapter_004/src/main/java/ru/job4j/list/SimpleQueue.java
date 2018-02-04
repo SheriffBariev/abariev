@@ -10,24 +10,8 @@ public class SimpleQueue<T> extends SimpleLinkedList<T> {
      * Retrieves and removes the first element of this Queue.
      * @return element.
      */
-    private T retrievesAndRemove() {
-        final T value = first.element;
-        final Node<T> next = first.next;
-        first.element = null;
-        first.next = null;
-        first = next;
-        if (next == null) {
-            last = null;
-        } else {
-            next.prev = null;
-        }
-        size--;
-        modCount++;
-        return value;
-    }
-
     public T poll() {
-        return this.retrievesAndRemove();
+        return getRemoveHead();
     }
 
     /**
