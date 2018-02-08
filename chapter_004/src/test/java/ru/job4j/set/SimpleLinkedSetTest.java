@@ -14,10 +14,10 @@ public class SimpleLinkedSetTest {
     public void whenThen() {
         SimpleLinkedSet<String> linkedSet = new SimpleLinkedSet<>();
 
-        linkedSet.add("one");
-        linkedSet.add("two");
-        linkedSet.add("two");
-        linkedSet.add("three");
+        linkedSet.addLinkedSet("one");
+        linkedSet.addLinkedSet("two");
+        linkedSet.addLinkedSet("two");
+        linkedSet.addLinkedSet("three");
         Iterator<String> it = linkedSet.iterator();
         assertThat(it.next(), is("one"));
         assertThat(it.next(), is("two"));
