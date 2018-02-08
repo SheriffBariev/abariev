@@ -10,9 +10,9 @@ import java.util.NoSuchElementException;
  * @since 26.01.2018.
  */
 public class SimpleList<E> implements SimpleContainer<E> {
-    private Object[] container;
+    public Object[] container;
     int index = 0;
-    int modCount = 0; //Счетчик
+    public int modCount = 0; //Счетчик
     int position = 0; //индекс для итератора
 
     /**
