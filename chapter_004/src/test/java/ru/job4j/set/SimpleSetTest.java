@@ -32,7 +32,7 @@ public class SimpleSetTest {
         simpleSet.setElement("Tree");
         simpleSet.setElement("Second");
         simpleSet.setElement("Third");
-        Iterator<String> it = simpleSet.iterator();
+        Iterator<String> it = simpleSet.getIterator();
         assertThat(it.hasNext(), is(true));
     }
 
@@ -45,7 +45,7 @@ public class SimpleSetTest {
         simpleSet.setElement("Second");
         simpleSet.setElement("Third");
 
-        Iterator<String> it = simpleSet.iterator();
+        Iterator<String> it = simpleSet.getIterator();
         it.next();
         it.next();
         it.next();
