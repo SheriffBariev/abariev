@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * @since 27.01.2018.
  */
 public class SimpleLinkedList<E> implements SimpleContainer<E> {
-    protected int size = 0;
+    public int size = 0;
     int modCount = 0;
     int position = 0;
 
@@ -18,7 +18,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
      * Class Node.
      * @param <E> element.
      */
-    protected static class Node<E> {
+    public static class Node<E> {
         E element;
         public Node<E> next;
         Node<E> prev;
@@ -52,7 +52,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
             return element;
         }
     }
-    protected Node<E> first;
+    public Node<E> first;
     Node<E> last;
 
     /**
