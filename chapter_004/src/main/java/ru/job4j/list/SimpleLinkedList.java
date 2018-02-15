@@ -18,7 +18,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
      * Class Node.
      * @param <E> element.
      */
-    public static class Node<E> {
+    private static class Node<E> {
         E element;
         public Node<E> next;
         Node<E> prev;
@@ -52,7 +52,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
             return element;
         }
     }
-    public Node<E> first;
+    Node<E> first;
     Node<E> last;
 
     /**
@@ -120,6 +120,15 @@ public class SimpleLinkedList<E> implements SimpleContainer<E> {
 
     public E getRemoveTail() {
         return removeTail();
+    }
+
+    public boolean contains(Object o) {
+        for (Node<E> node = first; node != null; node = node.next) {
+            if (o.equals(node.element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

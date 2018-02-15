@@ -10,29 +10,12 @@ import java.util.Iterator;
  */
 public class SimpleLinkedSet<E> {
     SimpleLinkedList<E> simpleLinkedList = new SimpleLinkedList<E>();
-
-    /**
-     * Check duplicate.
-     * @param e element.
-     * @return boolean.
-     */
-    private boolean checkDuplicate(E e) {
-        boolean result = false;
-        SimpleLinkedList.Node<E> node = simpleLinkedList.first;
-        for (int index = 0; index < simpleLinkedList.size; index++) {
-            if (e.equals(node.getElement())) {
-                result = true;
-            }
-            node = simpleLinkedList.first.next;
-        }
-        return result;
-    }
     /**
      * add element.
      * @param value abs value.
      */
     public void addLinkedSet(E value) {
-        if (!checkDuplicate(value)) {
+        if (!simpleLinkedList.contains(value)) {
             simpleLinkedList.add(value);
         }
     }
