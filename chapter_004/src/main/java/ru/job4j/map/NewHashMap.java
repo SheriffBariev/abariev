@@ -15,20 +15,28 @@ import java.util.NoSuchElementException;
 public class NewHashMap<K, V> {
     private int size;
     private int modCount = 0;
-    private Object[][] array;
+    private Entry[] array;
     private int count = 0; //for Iterator
+    private class Entry<K, V> {
+        K key;
+        V value;
 
+        public Entry(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
     /**
      * Constructor.
      * @param size array length.
      */
     public NewHashMap(int size) {
         this.size = size;
-        array = new Object[2][size];
+        array = new Entry[size];
     }
 
     public int getSize() {
-        return array[0].length;
+        return array.length;
     }
 
     /**
@@ -44,13 +52,13 @@ public class NewHashMap<K, V> {
      * reSize.
      */
     private void resize() {
-        Object[][] newArray = new Object[2][array[0].length * 2];
-        size = newArray[0].length;
-        for (int i = 0; i < array[0].length; i++) {
-            newArray[0][hashFunc((K) array[0][i])] = array[0][i];
-            newArray[1][hashFunc((K) array[0][i])] = array[1][i];
+        array = Arrays.copyOf(array, size * 2);
+        size = array.length;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                array[hashFunc((K) array[i])] = array[i];
+            }
         }
-        array = newArray;
     }
 
     /**
@@ -64,9 +72,8 @@ public class NewHashMap<K, V> {
             resize();
         }
         int index = hashFunc(key);
-        if (array[0][index] == null) {
-            array[0][index] = key;
-            array[1][index] = value;
+        if (array[index] == null) {
+            array[index] = new Entry(key, value);
             modCount++;
             return true;
         }
@@ -78,8 +85,8 @@ public class NewHashMap<K, V> {
     }
 
     public V get(K key) {
-        if (array[0][hashFunc(key)] != null) {
-            return (V) array[1][hashFunc(key)];
+        if (array[hashFunc(key)] != null) {
+            return (V) array[hashFunc(key)].value;
         }
         return null;
     }
@@ -91,9 +98,8 @@ public class NewHashMap<K, V> {
      */
     private boolean delete(K key) {
         int index = hashFunc(key);
-        if (array[0][index] != null) {
-            array[0][index] = null;
-            array[1][index] = null;
+        if (array[index] != null) {
+            array[index] = null;
             modCount--;
             return true;
         }
@@ -115,17 +121,17 @@ public class NewHashMap<K, V> {
                 if (count == size) {
                     return false;
                 }
-                while (array[0][count] == null) {
-                        count++;
+                while (array[count] == null) {
+                    count++;
                 }
-                return array[0][count] != null;
+                return array[count] != null;
             }
 
             @Override
             public V next() {
                 checkModification();
                 if (hasNext()) {
-                    Object item = array[1][count++];
+                    Object item = array[count++];
                     return (V) item;
                 }
                 throw new NoSuchElementException("");

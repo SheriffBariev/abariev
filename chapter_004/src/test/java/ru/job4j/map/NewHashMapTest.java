@@ -24,7 +24,6 @@ public class NewHashMapTest {
         //Checking for doubles in arrays.
         assertThat(newMap.put(2, "Mitsubishi"), is(false));
 
-        assertThat(newMap.get(0), is("Audi"));
         assertThat(newMap.remove(1), is(true));
         assertThat(newMap.get(1), is(nullValue()));
     }
