@@ -39,10 +39,12 @@ public class NewHashMapTest {
 
     @Test(expected = NoSuchElementException.class)
     public void whenHasNextShouldNext() {
-        NewHashMap<Integer, String> newMap = new NewHashMap<>(2);
-        newMap.put(1, "Tune");
-        newMap.put(2, "Harmony");
+        NewHashMap<Integer, String> newMap = new NewHashMap<>(5);
+        newMap.put(0, "Tune");
+        newMap.put(1, "Harmony");
+        newMap.put(3, "Harmony");
         Iterator it = newMap.iterator();
+        it.next();
         it.next();
         it.next();
         assertThat(it.hasNext(), is(false));

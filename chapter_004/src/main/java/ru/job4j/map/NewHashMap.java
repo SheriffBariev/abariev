@@ -121,7 +121,7 @@ public class NewHashMap<K, V> {
                 if (count == size) {
                     return false;
                 }
-                while (array[count] == null) {
+                while (array[count] == null && count < size - 1) {
                     count++;
                 }
                 return array[count] != null;
