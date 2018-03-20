@@ -34,11 +34,8 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
         if (check.isPresent()) {
             Node<E> parentValue = check.get();
             boolean duplicate = false;
-            for (Node<E> node : parentValue.leaves()) {
-                if (node.eqValue(child)) {
-                    duplicate = true;
-                    break;
-                }
+            if (findBy(child).isPresent()) {
+                duplicate = true;
             }
             if (!duplicate) {
                 parentValue.add(new Node<E>(child));
@@ -111,5 +108,16 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
                 return res.getValue();
             }
         };
+    }
+
+    public static void main(String[] args) {
+        Tree<Integer> tree = new Tree<>(1);
+        tree.add(1, 2);
+        tree.add(1, 3);
+        tree.add(1, 4);
+        tree.add(4, 5);
+        tree.add(5, 6);
+        System.out.println(tree.findBy(4).get().getValue());
+
     }
 }
